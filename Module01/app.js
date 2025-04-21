@@ -2,23 +2,18 @@
     "use strict";
 
     angular
-        .module("NameCalculator", [])
-        .controller("NameCalculatorController", function ($scope) {
-            $scope.name = "";
-            $scope.totalValue = 0;
+        .module("DIApp", [])
+        .controller("DIController", DIController);
 
-            $scope.displayNumeric = function () {
-                var totalNameValue = calculateNumericForString($scope.name); // get the total value
-                $scope.totalValue = totalNameValue;
-            }
-        });
+    function DIController (
+                            $scope,
+                            $filter,
+                            $injector) {
+        $scope.name = "Ben";
 
-    function calculateNumericForString(string) {
-        var totalStringValue = 0;
-        for (var i = 0; i < string.length; i++) {
-            totalStringValue += string.charCodeAt(i);
-        }
-        
-        return totalStringValue;
+        $scope.upper = function () {
+            var upCase = $filter("uppercase");
+            $scope.name = upCase($scope.name);
+        };
     }
 })();

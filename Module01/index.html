@@ -1,23 +1,18 @@
-<html>
+<html ng-app="DIApp">
     <head>
-        <title>Name Calculator</title>
+        <meta charset="utf-8" />
         <script type="text/javascript" src="../lib/angularjs/1.8.2/angular.js"></script>
         <script type="text/javascript" src="app.js"></script>
         <style>body { font-size: 1.3em; }</style>
+        <title>Dependency Injection in JavaScript (and AngularJS)</title>
     </head>
     <body ng-app="NameCalculator">
-        <h1>Name Calculator</h1>
-        <div ng-controller="NameCalculatorController">
-            <div>
-                Your name:
-                <input
-                        type="text"
-                        ng-model="name"
-                        ng-keyup="displayNumeric();" />
-            </div>
-            <div>
-                Total Numeric value of person's name is: {{totalValue}}
-            </div>
+        <h1>Dependency Injection in JavaScript (and AngularJS)</h1>
+        <div ng-controller="DIController">
+            <input
+                type="text"
+                ng-model="name"
+                ng-blur="upper();" />
         </div>
     </body>
 </html>
